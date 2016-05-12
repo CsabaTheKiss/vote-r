@@ -6,5 +6,5 @@ It's meant to help in organizing team building events: add your name, vote on ev
 
 ## Inital release
 
-Please not, that the current release is a really basic version.
+Please note, that the current release is a really basic version.
 The server side is mocked out, serious refactoring is needed.
