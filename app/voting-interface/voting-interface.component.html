@@ -1,0 +1,22 @@
+<div *ngIf="stateService.nameSended && stateService.userMayVote && !stateService.voteEnded">
+  <h2>Please vote in the following list below!</h2>
+  <span>You may vote as: {{ stateService.userName }}</span><br>
+  <div>
+    <p>The flollowing users voted so far:</p>
+    <p>{{ userList }}</p>
+  </div>
+  <ul id="event-list">
+    <li *ngFor="let event of eventList; let i = index">
+      <span>{{event.name}}</span>
+      <span>
+        <input type="range" min="0" max="{{ maxVoteVal }}" [(ngModel)]="currentVotes[i].vote">
+        <span>{{ currentVotes[i].vote }} / {{ maxVoteVal }}</span>
+      </span>
+    </li>
+  </ul>
+  <button (click)="sendVotes()">Vote!</button>
+</div>
+<vote-results
+  *ngIf="stateService.nameSended && ( !stateService.userMayVote || stateService.voteEnded )"
+  [endResults]="eventAvgList">
+</vote-results>

@@ -1,2 +1,3 @@
 <h1>Welcome to Vote-R!</h1>
-<input-form>Import form should be here...</input-form>
+<input-form *ngIf="!stateService.nameSended">Import form should be here...</input-form>
+<voting-interface></voting-interface>

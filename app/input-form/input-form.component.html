@@ -1,24 +1,8 @@
-<h2>{{title}}</h2>
-<form *ngIf="!nameSended">
-  <input type="text" placeholder="Add your name here" [(ngModel)]="userName" value="Ghost">
-  <span>The name you entered is: {{userName}}</span><br>
-  <button (click)="sendName()">Send</button>
-</form>
-<div *ngIf="nameSended">
-  <span>{{message}}</span><br>
-  <div *ngIf="voteEnded || !userMayVote">
-    <p>The flollowing users voted so far:</p>
-    <p>{{userList}}</p>
-  </div>
-  <ul id="event-list">
-    <li *ngFor="let event of eventList; let i = index">
-      <span>{{event.name}}</span>
-      <span *ngIf="userMayVote && !voteEnded">
-        <input type="range" min="0" max="{{ maxVoteVal }}" [(ngModel)]="currentVotes[i].vote">
-        <span>{{ currentVotes[i].vote }} / {{ maxVoteVal }}</span>
-      </span>
-      <span *ngIf="!userMayVote || voteEnded"> {{ eventAvgList[i].voteAvg }} / {{ maxVoteVal }} </span>
-    </li>
-  </ul>
-  <button *ngIf="userMayVote && !voteEnded" (click)="sendVotes()">Vote!</button>
+<div>
+  <h2>Please add your name:</h2>
+  <form>
+    <input type="text" placeholder="Add your name here" [(ngModel)]="userName" value="Ghost">
+    <span>The name you entered is: {{userName}}</span><br>
+    <button (click)="sendName()">Send</button>
+  </form>
 </div>

@@ -42,7 +42,6 @@ export class DataService {
       this.eventList[i].votes.push(votesArr[i].vote);
     }
     this.updateAvgVotes();
-    console.log("a voting has ended: ", votesArr[0].vote);
     // NEED TO SAVE TO SERVER HERE - eventList property
   }
 

@@ -1,0 +1,14 @@
+<div>
+  <h2>Thanks for voting!</h2>
+  <span>You voted as {{ stateService.userName }}</span><br>
+  <div>
+    <p>The flollowing users voted so far:</p>
+    <p>{{userList}}</p>
+  </div>
+  <ul id="event-list">
+    <li *ngFor="let event of endResults; let i = index">
+      <span>{{event.name}}</span>
+      <span *ngIf="!stateService.userMayVote || stateService.voteEnded"> {{ event.voteAvg }} / {{ maxVoteVal }} </span>
+    </li>
+  </ul>
+</div>
