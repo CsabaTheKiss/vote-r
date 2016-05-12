@@ -8,3 +8,14 @@ It's meant to help in organizing team building events: add your name, vote on ev
 
 Please note, that the current release is a really basic version.
 The server side is mocked out, serious refactoring is needed.
+
+## How to install
+
+```
+npm install
+npm start
+```
+
+## Known issues
+
+In Chrome, if you send your name, it reloads the whole app.
