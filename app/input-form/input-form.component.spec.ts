@@ -24,7 +24,7 @@ import { PromiseWrapper } from '@angular/core/src/facade/promise';
   });
 }); */
 
-describe('InputFormComponent with new', function () {
+/*describe('InputFormComponent with new', function () {
   it('should instantiate component', () => {
     expect(new InputFormComponent()).toBeDefined('Whoopie!');
   });
@@ -99,3 +99,4 @@ describe('InputFormComponent with TCB', function () {
 
   });
 });
+*/
