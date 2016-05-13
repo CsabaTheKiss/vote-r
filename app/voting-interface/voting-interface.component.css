@@ -4,7 +4,7 @@
 
 #vr-voting-interface #event-list .event-name {
   float: left;
-  line-height: 2em;
+  line-height: 2.1em;
 }
 
 #vr-voting-interface #event-list .event-details{
@@ -13,7 +13,7 @@
 
 #vr-voting-interface #event-list .vote-details{
   float: right;
-  line-height: 2em;
+  line-height: 2.1em;
 }
 
 #vr-voting-interface #event-list input[type=range] {
@@ -21,7 +21,7 @@
 }
 
 #vr-voting-interface #event-list li {
-  height: 2em;
+  height: 2.1em;
   padding: 0 10px;
 }
 
