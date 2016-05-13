@@ -14,7 +14,7 @@
       </span>
     </li>
   </ul>
-  <button (click)="sendVotes()">Vote!</button>
+  <button (click)="sendVotes()">Vote</button>
 </div>
 <vote-results
   *ngIf="stateService.nameSended && ( !stateService.userMayVote || stateService.voteEnded )"

@@ -8,9 +8,8 @@
   <h2>Results so far</h2>
   <ul id="event-list">
     <li *ngFor="let event of endResults; let i = index">
-      <span class="event-name">{{event.name}}</span>
-      <span class="vote-details"
-            *ngIf="!stateService.userMayVote || stateService.voteEnded"> {{ event.voteAvg }} / {{ maxVoteVal }} </span>
+      <span class="event-name">{{ event.name }}</span>
+      <span class="vote-details">{{ event.voteAvg }} / {{ maxVoteVal }} </span>
     </li>
   </ul>
 </div>

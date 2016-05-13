@@ -1,10 +1,12 @@
 <div id="vr-input-form-component">
-  <h2>Please add your name:</h2>
-  <form>
+  <h2>Please enter your name:</h2>
+  <form (ngSubmit)="sendName()" #nameForm="ngForm" novalidate>
     <section class="input-fields">
-      <input type="text" placeholder="Add your name here" [(ngModel)]="userName" value="Ghost">
+      <input type="text" placeholder="Add your name here" required
+             [(ngModel)]="userName"
+             ngControl="userName">
       <span>The name you entered is: <span class="user-name">{{userName}}</span></span>
     </section>
-    <button (click)="sendName()">Send</button>
+    <button type="submit" [disabled]="!nameForm.form.valid">Send</button>
   </form>
 </div>

@@ -12,11 +12,18 @@ h2, h3 {
 }
 body {
   margin: 2em;
-  background: #C3C3C3;
+  background: #c3c3c3;
 }
-body, input[text], button {
+input[type=text] {
+  border: 1px solid #cecece;
+  border-radius: 3px;
+  height: 2.5em;
+  line-height: 2.5em;
+  padding: 8px;
+}
+body, input[type=text], button {
   color: #888;
-  font-family: Cambria, Georgia;
+  font-family: 'Open Sans', Cambria, Georgia;
 }
 a {
   cursor: pointer;
@@ -25,8 +32,8 @@ a {
 button {
   font-family: 'Open Sans', Arial;
   background-color: #eee;
+  border: 1px solid #eee;
   letter-spacing: 1.5;
-  border: none;
   padding: 5px 10px;
   text-transform: uppercase;
   border-radius: 4px;
@@ -37,7 +44,8 @@ button:hover {
   background-color: #cfd8dc;
 }
 button:disabled {
-  background-color: #eee;
+  background-color: #fff;
+  border: 1px solid #eee;
   color: #aaa;
   cursor: auto;
 }
