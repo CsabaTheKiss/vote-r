@@ -7,6 +7,10 @@
   line-height: 2em;
 }
 
+#vr-voting-interface #event-list .event-details{
+  float: right;
+}
+
 #vr-voting-interface #event-list .vote-details{
   float: right;
   line-height: 2em;
