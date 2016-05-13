@@ -1,0 +1,28 @@
+#vr-vote-results #event-list {
+  list-style-type: none;
+}
+
+#vr-vote-results #event-list .event-name {
+  float: left;
+  line-height: 2em;
+}
+
+#vr-vote-results #event-list .vote-details{
+  float: right;
+  line-height: 2em;
+}
+
+#vr-vote-results #event-list li {
+  height: 2em;
+  padding: 0 10px;
+}
+
+#vr-vote-results #event-list li:nth-child(odd) {
+  background: #F2F2F2;
+}
+
+#vr-vote-results #event-list li::after {
+  content: '';
+  clear: both;
+  display: block;
+}

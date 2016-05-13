@@ -1,8 +1,10 @@
-<div>
+<div id="vr-input-form-component">
   <h2>Please add your name:</h2>
   <form>
-    <input type="text" placeholder="Add your name here" [(ngModel)]="userName" value="Ghost">
-    <span>The name you entered is: {{userName}}</span><br>
+    <section class="input-fields">
+      <input type="text" placeholder="Add your name here" [(ngModel)]="userName" value="Ghost">
+      <span>The name you entered is: <span class="user-name">{{userName}}</span></span>
+    </section>
     <button (click)="sendName()">Send</button>
   </form>
 </div>
