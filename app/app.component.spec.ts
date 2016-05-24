@@ -17,19 +17,6 @@ import { PromiseWrapper } from '@angular/core/src/facade/promise';
 
 ////////  SPECS  /////////////
 
-/// Delete this
-describe('Smoke test', () => {
-  it('should run a passing test', () => {
-    expect(true).toEqual(true, 'should pass');
-  });
-});
-
-/* describe('AppComponent with new', function () {
-  it('should instantiate component', () => {
-    expect(new AppComponent()).toBeDefined('Whoopie!');
-  });
-});
-
 describe('AppComponent with TCB', function () {
 
   it('should instantiate component',
@@ -39,6 +26,7 @@ describe('AppComponent with TCB', function () {
       expect(fixture.componentInstance instanceof AppComponent).toBe(true, 'should create AppComponent');
     });
   })));
+
 
   it('should have expected <h1> text',
     async(inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
@@ -55,4 +43,3 @@ describe('AppComponent with TCB', function () {
 
   })));
 });
-*/

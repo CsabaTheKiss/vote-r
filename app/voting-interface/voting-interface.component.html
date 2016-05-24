@@ -5,16 +5,22 @@
     <p>The flollowing users voted so far:</p>
     <p class="user-name">{{ userList }}</p>
   </div>
-  <ul id="event-list">
-    <li *ngFor="let event of eventList; let i = index">
-      <span class="event-name">{{event.name}}</span>
-      <span class="event-details">
-        <input type="range" min="0" max="{{ maxVoteVal }}" [(ngModel)]="currentVotes[i].vote">
-        <span class="vote-details">{{ currentVotes[i].vote }} / {{ maxVoteVal }}</span>
-      </span>
-    </li>
-  </ul>
-  <button (click)="sendVotes()">Vote</button>
+  <form [ngFormModel]="votingForm" (ngSubmit)="sendVotes()" novalidate>
+  <div>Votes given:
+    <input id="sumOfVotes" type="text" [(ngModel)]="sumOfVotes" ngControl="sumOfVotesControl" readonly>
+    <span *ngIf="!sumOfVotesControl.valid" class="error-msg">You must set {{ maxVoteVal }} votes!</span>
+  </div>
+    <ul id="event-list">
+      <li *ngFor="let event of eventList; let i = index">
+        <span class="event-name">{{event.name}}</span>
+        <span class="event-details">
+          <input type="range" min="0" max="{{ maxVoteVal }}" [(ngModel)]="currentVotes[i].vote" (change)="voteChanged()">
+          <span class="vote-details">{{ currentVotes[i].vote }} / {{ maxVoteVal }}</span>
+        </span>
+      </li>
+    </ul>
+    <button type="submit" [disabled]="!votingForm.valid">Vote</button>
+  </form>
 </div>
 <vote-results
   *ngIf="stateService.nameSended && ( !stateService.userMayVote || stateService.voteEnded )"

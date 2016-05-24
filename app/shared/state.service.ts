@@ -4,13 +4,11 @@ import { DataService } from '../shared/data.service';
 
 @Injectable()
 export class StateService {
-  userName : string
+  userName : string = "";
   nameSended : Boolean = false;
   userMayVote : Boolean = false;
   voteEnded : Boolean = false;
   currentVotes : { "name" : string, "vote" : number } [] = this.dataService.getBlankVoteList();
-
-  subTitle : string;
 
   constructor (private dataService: DataService) {};
 
