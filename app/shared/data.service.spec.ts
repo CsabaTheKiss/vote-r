@@ -17,7 +17,7 @@ import { ViewMetadata }   from '@angular/core';
 import { PromiseWrapper } from '@angular/core/src/facade/promise';
 
 ////////  SPECS  /////////////
-
+/*
 describe('The DataService', () => {
 
   beforeEachProviders ( () => [
@@ -216,4 +216,4 @@ describe('The DataService', () => {
 
   });
 
-});
+});*/

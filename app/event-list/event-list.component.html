@@ -1,0 +1,7 @@
+<section>
+  <h2>Select an event to vote</h2>
+  <p>Avalaible events</p>
+  <ul class="event-list">
+    <li *ngFor="let event of eventList" (click)="gotoDetail(event)">{{ event.name }}</li>
+  </ul>
+</section>

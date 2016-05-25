@@ -1,5 +1,6 @@
-<div id="vr-voting-interface" *ngIf="stateService.nameSended && stateService.userMayVote && !stateService.voteEnded">
-  <h2>Please vote in the following list below!</h2>
+<!-- div id="vr-voting-interface" *ngIf="stateService.nameSended && stateService.userMayVote && !stateService.voteEnded"> -->
+<div *ngIf="eventList">
+  <h2>{{ eventList.name }}</h2>
   <span>You may vote as: <span class="user-name">{{ stateService.userName }}</span></span><br>
   <div>
     <p>The flollowing users voted so far:</p>
@@ -11,7 +12,7 @@
     <span *ngIf="!sumOfVotesControl.valid" class="error-msg">You must set {{ maxVoteVal }} votes!</span>
   </div>
     <ul id="event-list">
-      <li *ngFor="let event of eventList; let i = index">
+      <li *ngFor="let event of eventList.events; let i = index">
         <span class="event-name">{{event.name}}</span>
         <span class="event-details">
           <input type="range" min="0" max="{{ maxVoteVal }}" [(ngModel)]="currentVotes[i].vote" (change)="voteChanged()">
@@ -19,10 +20,11 @@
         </span>
       </li>
     </ul>
+    <button (click)="goBack()">Back</button>
     <button type="submit" [disabled]="!votingForm.valid">Vote</button>
   </form>
 </div>
-<vote-results
+<!-- vote-results
   *ngIf="stateService.nameSended && ( !stateService.userMayVote || stateService.voteEnded )"
   [endResults]="eventAvgList">
-</vote-results>
+</vote-results -->

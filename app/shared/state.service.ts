@@ -21,6 +21,6 @@ export class StateService {
 
   toEndVotingState ( currentVotes : { "name" : string, "vote" : number } [] ) {
     this.voteEnded = true;
-    this.dataService.saveVotes(this.userName, this.currentVotes);
+    //this.dataService.saveVotes(this.userName, this.currentVotes);
   }
 }

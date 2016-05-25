@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FORM_DIRECTIVES, FormBuilder, Control, ControlGroup, Validators } from '@angular/common';
 import { DataService } from '../shared/data.service';
 import { StateService } from '../shared/state.service';
 import { VoteResultsComponent } from '../vote-results/vote-results.component';
+import { RouteParams } from '@angular/router-deprecated';
 
 /* interface ValidationResult {
  [key:string]:boolean;
@@ -23,11 +24,14 @@ class sumOfVotesValidator {
   directives: [ VoteResultsComponent, FORM_DIRECTIVES ]
 })
 
-export class VotingInterfaceComponent {
+export class VotingInterfaceComponent implements OnInit{
+
   private userList : string = this.dataService.getUsersWhoVoted().join(', ');
-  private eventList = this.dataService.getEventList();
+  // private eventList = this.dataService.getEventList();
+  private eventList :  { "id": number, "name" : string, "events":
+        { "id": number, "name": string, "votes": number [] } [] };
   private eventAvgList = this.dataService.getAvgEventList();
-  private currentVotes : { "name" : string, "vote" : number } [] = this.dataService.getBlankVoteList();
+  private currentVotes : { "name" : string, "vote" : number } [];
   private maxVoteVal = this.dataService.getMaxVoteVal();
   private sumOfVotes = 0;
   private sumOfVotesControl: Control;
@@ -40,6 +44,7 @@ export class VotingInterfaceComponent {
   constructor(
     private stateService : StateService,
     private dataService : DataService,
+    private routeParams: RouteParams,
     private builder : FormBuilder
   ) {
     this.sumOfVotesControl = new Control('',sumOfVotesValidator.sumEquals);
@@ -48,6 +53,24 @@ export class VotingInterfaceComponent {
       sumOfVotesControl: this.sumOfVotesControl
     });
   };
+
+  ngOnInit () {
+    let id = +this.routeParams.get('id');
+    this.dataService.getEvent(id)
+      .then(eventList => {
+        this.eventList = eventList;
+        let blankList : any = [];
+        this.eventList.events.forEach((elem) => {
+          let newElem = { "name" : elem.name, "vote" : 0 };
+            blankList.push(newElem);
+        });
+        this.currentVotes = blankList;
+      });
+   };
+
+  goBack() {
+    window.history.back();
+  }
 
   sendVotes() {
     this.stateService.toEndVotingState( this.currentVotes );

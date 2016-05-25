@@ -12,13 +12,20 @@ export class DataService {
 
   constructor () {
     // NEED TO GET eventList FROM SERVER HERE
-    this.updateAvgVotes();
-    this.eventList.forEach( (elem, ind) => {
+    // this.updateAvgVotes();
+    // create the blank list, when an event is choosen
+    /*this.eventList.forEach( (elem, ind) => {
       this.blankVoteList.push( { "name" : elem.name, "vote" : 0 } );
-    });
+    });*/
   };
 
-  private updateAvgVotes () {
+  getEvent(id : number) {
+    return Promise.resolve(EVENTS).then(
+      events => events.filter(event => event.id === id)[0]
+    );
+  }
+
+  /*private updateAvgVotes () {
     this.eventAvgEventList = [];
     this.eventList.forEach( (elem, ind) => {
       let newElem = { "name" : elem.name, "voteAvg" : this.countAvg(elem.votes) };
@@ -43,7 +50,7 @@ export class DataService {
     }
     this.updateAvgVotes();
     // NEED TO SAVE TO SERVER HERE - eventList property
-  }
+  }*/
 
   getUserVoteStatus (userName : String) : Boolean {
     return ( this.usersWhoVoted.indexOf(userName) === -1 );
@@ -57,12 +64,12 @@ export class DataService {
     return this.eventList;
   }
 
-  getAvgEventList () {
-    return this.eventAvgEventList;
+  getBlankVoteList (id : number) {
+
   }
 
-  getBlankVoteList () {
-    return this.blankVoteList;
+  getAvgEventList () {
+    return this.eventAvgEventList;
   }
 
   getMaxVoteVal () {

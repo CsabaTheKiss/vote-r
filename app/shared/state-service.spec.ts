@@ -42,7 +42,7 @@ class MockedDataService {
 }
 
 ////////  SPECS  /////////////
-
+/*
 describe('The StateService', () => {
 
   beforeEachProviders(() => [
@@ -156,3 +156,4 @@ describe('The StateService', () => {
   });
 
 });
+*/
