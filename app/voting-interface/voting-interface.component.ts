@@ -30,7 +30,7 @@ export class VotingInterfaceComponent implements OnInit{
   // private eventList = this.dataService.getEventList();
   private eventList :  { "id": number, "name" : string, "events":
         { "id": number, "name": string, "votes": number [] } [] };
-  private eventAvgList = this.dataService.getAvgEventList();
+  private eventAvgList = this.dataService.getAvgEventList(+this.routeParams.get('id'));
   private currentVotes : { "name" : string, "vote" : number } [];
   private maxVoteVal = this.dataService.getMaxVoteVal();
   private sumOfVotes = 0;
@@ -59,6 +59,7 @@ export class VotingInterfaceComponent implements OnInit{
     this.dataService.getEvent(id)
       .then(eventList => {
         this.eventList = eventList;
+        // initilazing blank vote page for voting - need to push it back for dataService
         let blankList : any = [];
         this.eventList.events.forEach((elem) => {
           let newElem = { "name" : elem.name, "vote" : 0 };
@@ -68,15 +69,19 @@ export class VotingInterfaceComponent implements OnInit{
       });
    };
 
-  goBack() {
+  goBack(event : any) {
+    // becouse plain button also submits form
+    event.preventDefault();
     window.history.back();
   }
 
   sendVotes() {
-    this.stateService.toEndVotingState( this.currentVotes );
-    this.eventAvgList = this.dataService.getAvgEventList();
+    console.log("sending votes...");
+    this.stateService.toEndVotingState( this.currentVotes, +this.routeParams.get('id'));
+    this.eventAvgList = this.dataService.getAvgEventList(+this.routeParams.get('id'));
   }
 
+  // if any voter slider changes, we need to recalculate the sum of the votes
   voteChanged() {
     let sum = 0;
     for (let i = 0; i < this.currentVotes.length; ++i) {

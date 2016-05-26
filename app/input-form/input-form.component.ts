@@ -15,7 +15,6 @@ export class InputFormComponent {
   ) {};
 
   sendName() {
-    // Chrome reloads page when this fuction is called (something related to nameSended)
     this.stateService.toVotingState(this.userName);
   }
 }

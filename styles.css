@@ -29,7 +29,7 @@ a {
   cursor: pointer;
   cursor: hand;
 }
-button {
+button, .button {
   font-family: 'Open Sans', Arial;
   background-color: #eee;
   border: 1px solid #eee;
@@ -40,10 +40,10 @@ button {
   cursor: pointer;
   cursor: hand;
 }
-button:hover {
+button:hover, .button:hover {
   background-color: #cfd8dc;
 }
-button:disabled {
+button:disabled, .button:disabled {
   background-color: #fff;
   border: 1px solid #eee;
   color: #aaa;

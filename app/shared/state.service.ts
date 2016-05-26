@@ -8,7 +8,7 @@ export class StateService {
   nameSended : Boolean = false;
   userMayVote : Boolean = false;
   voteEnded : Boolean = false;
-  currentVotes : { "name" : string, "vote" : number } [] = this.dataService.getBlankVoteList();
+  currentVotes : { "name" : string, "vote" : number } []; //= this.dataService.getBlankVoteList();
 
   constructor (private dataService: DataService) {};
 
@@ -19,8 +19,9 @@ export class StateService {
     this.userMayVote = this.dataService.getUserVoteStatus( this.userName );
   }
 
-  toEndVotingState ( currentVotes : { "name" : string, "vote" : number } [] ) {
+  toEndVotingState ( currentVotes : { "name" : string, "vote" : number } [], eventId : number ) {
     this.voteEnded = true;
-    //this.dataService.saveVotes(this.userName, this.currentVotes);
+    this.dataService.saveVotes(this.userName, currentVotes, eventId);
+    console.log("voting ended");
   }
 }

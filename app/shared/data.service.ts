@@ -25,11 +25,15 @@ export class DataService {
     );
   }
 
-  /*private updateAvgVotes () {
+  private updateAvgVotes (eventId : number) {
     this.eventAvgEventList = [];
-    this.eventList.forEach( (elem, ind) => {
-      let newElem = { "name" : elem.name, "voteAvg" : this.countAvg(elem.votes) };
-      this.eventAvgEventList.push(newElem);
+    this.eventList.forEach( (elem) => {
+      if ( elem.id === eventId ) {
+        elem.events.forEach( (event) =>  {
+          let newElem = { "name" : event.name, "voteAvg" : this.countAvg(event.votes) };
+          this.eventAvgEventList.push(newElem);
+        });
+      }
     });
   }
 
@@ -42,15 +46,19 @@ export class DataService {
     return Math.round( ( sum / numArray.length ) * 100 ) / 100;
   }
 
-  saveVotes(userName : string, votesArr : { "name" : string, "vote" : number }[] ) {
+  saveVotes(userName : string, votesArr : { "name" : string, "vote" : number }[], eventId: number ) {
     this.usersWhoVoted.push(userName);
-    // they are in the same order, no need to search by name
     for ( let i = 0; i < this.eventList.length; ++i ) {
-      this.eventList[i].votes.push(votesArr[i].vote);
+      if ( this.eventList[i].id === eventId ) {
+        // events in votesArr and in the eventList are in the same order, no need to search by name
+        for ( let j = 0; j < this.eventList[i].events.length; ++j ) {
+          this.eventList[i].events[j].votes.push(votesArr[j].vote);
+        }
+      }
     }
-    this.updateAvgVotes();
+    this.updateAvgVotes(eventId);
     // NEED TO SAVE TO SERVER HERE - eventList property
-  }*/
+  }
 
   getUserVoteStatus (userName : String) : Boolean {
     return ( this.usersWhoVoted.indexOf(userName) === -1 );
@@ -68,7 +76,8 @@ export class DataService {
 
   }
 
-  getAvgEventList () {
+  getAvgEventList (eventId: number) {
+    this.updateAvgVotes(eventId);
     return this.eventAvgEventList;
   }
 
