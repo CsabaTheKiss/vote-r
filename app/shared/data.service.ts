@@ -6,7 +6,7 @@ import { WHO_VOTED } from '../shared/who-voted-mock';
 export class DataService {
   private usersWhoVoted = WHO_VOTED;
   private eventList = EVENTS;
-  private eventAvgEventList : any[] = [];
+  private eventAvgEventList : { "name" : string, "voteAvg" : number } [] = [];
   private blankVoteList : any [] = [];
   private maxVoteVal = 10; // set the max possbile vote points here
 

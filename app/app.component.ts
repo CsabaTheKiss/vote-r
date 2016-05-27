@@ -4,6 +4,7 @@ import { StateService } from './shared/state.service';
 import  { InputFormComponent } from './input-form/input-form.component';
 import { VotingInterfaceComponent } from './voting-interface/voting-interface.component';
 import { EventListComponent } from './event-list/event-list.component';
+import { VoteResultsComponent } from './vote-results/vote-results.component';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
 @Component({
@@ -13,6 +14,7 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/route
     directives: [
       InputFormComponent,
       VotingInterfaceComponent,
+      VoteResultsComponent,
       EventListComponent,
       ROUTER_DIRECTIVES
     ]
@@ -23,6 +25,11 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/route
     path: '/vote/:id',
     name: 'VotingInterface',
     component: VotingInterfaceComponent
+  },
+  {
+    path: '/results/:id',
+    name: 'VoteResults',
+    component: VoteResultsComponent
   },
   {
     path: '/eventlist',

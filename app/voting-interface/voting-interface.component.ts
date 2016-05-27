@@ -2,16 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FORM_DIRECTIVES, FormBuilder, Control, ControlGroup, Validators } from '@angular/common';
 import { DataService } from '../shared/data.service';
 import { StateService } from '../shared/state.service';
-import { VoteResultsComponent } from '../vote-results/vote-results.component';
-import { RouteParams } from '@angular/router-deprecated';
-
-/* interface ValidationResult {
- [key:string]:boolean;
-} */
+import { RouteParams, Router } from '@angular/router-deprecated';
 
 class sumOfVotesValidator {
   static sumEquals(control: Control) {
-    // returning true means NOT valid input
+    // returning true means a NOT valid input
     if ( control.value !== 10 ) { return { "sumOfVotesValidator" : true }
     }
     return null;
@@ -21,7 +16,7 @@ class sumOfVotesValidator {
 @Component({
   selector: 'voting-interface',
   templateUrl: './app/voting-interface/voting-interface.component.html',
-  directives: [ VoteResultsComponent, FORM_DIRECTIVES ]
+  directives: [ FORM_DIRECTIVES ]
 })
 
 export class VotingInterfaceComponent implements OnInit{
@@ -30,18 +25,14 @@ export class VotingInterfaceComponent implements OnInit{
   // private eventList = this.dataService.getEventList();
   private eventList :  { "id": number, "name" : string, "events":
         { "id": number, "name": string, "votes": number [] } [] };
-  private eventAvgList = this.dataService.getAvgEventList(+this.routeParams.get('id'));
   private currentVotes : { "name" : string, "vote" : number } [];
   private maxVoteVal = this.dataService.getMaxVoteVal();
   private sumOfVotes = 0;
   private sumOfVotesControl: Control;
   private votingForm: ControlGroup;
-  // sum votes: an array made of integers - bind them with the sliders
-  // on change event: re-calculate the sum, and check its value
-  // to make use of angular form validation: read-only (?) input field that contains the sum of vote points
-  // based on that make form validation? seems legit...
 
   constructor(
+    private router: Router,
     private stateService : StateService,
     private dataService : DataService,
     private routeParams: RouteParams,
@@ -76,9 +67,10 @@ export class VotingInterfaceComponent implements OnInit{
   }
 
   sendVotes() {
-    console.log("sending votes...");
-    this.stateService.toEndVotingState( this.currentVotes, +this.routeParams.get('id'));
-    this.eventAvgList = this.dataService.getAvgEventList(+this.routeParams.get('id'));
+    let eventId = +this.routeParams.get('id');
+    this.stateService.toEndVotingState( this.currentVotes, eventId);
+    let link = ['VoteResults', { id: eventId }];
+    this.router.navigate(link);
   }
 
   // if any voter slider changes, we need to recalculate the sum of the votes

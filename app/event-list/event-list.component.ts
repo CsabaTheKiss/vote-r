@@ -13,13 +13,20 @@ export class EventListComponent {
   eventList = this.dataService.getEventList();
 
   constructor (
-    // private stateService : StateService,
+    private stateService : StateService,
     private router: Router,
     private dataService : DataService
   ) {}
 
   gotoDetail (event : any) {
-    let link = ['VotingInterface',  { id: event.id } ];
+    let userName = this.stateService.userName;
+    let userMayVote = this.dataService.getUserVoteStatus(userName);
+    let link : any;
+    if ( userMayVote ) {
+      link = ['VotingInterface',  { id: event.id } ];
+    } else {
+      link = ['VoteResults',  { id: event.id } ];
+    }
     this.router.navigate(link);
   }
 }

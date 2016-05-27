@@ -1,5 +1,5 @@
-<div id="vr-voting-interface" *ngIf="eventList && stateService.nameSended && stateService.userMayVote && !stateService.voteEnded">
-<!-- div *ngIf="eventList"-->
+<!-- div id="vr-voting-interface" *ngIf="eventList && stateService.nameSended && stateService.userMayVote && !stateService.voteEnded" -->
+<div id="vr-voting-interface" *ngIf="eventList">
   <h2>Voting for: {{ eventList.name }}</h2>
   <span>You may vote as: <span class="user-name">{{ stateService.userName }}</span></span><br>
   <div>
@@ -25,7 +25,3 @@
     <input class="button" type="submit" [disabled]="!votingForm.valid" value="Vote">
   </form>
 </div>
-<vote-results
-  *ngIf="eventList && stateService.nameSended && ( !stateService.userMayVote || stateService.voteEnded )"
-  [endResults]="eventAvgList">
-</vote-results>
