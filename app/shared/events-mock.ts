@@ -1,6 +1,7 @@
 // import { VREvent } from './event-type';
 export var EVENTS =
-[ { "id": 1, "name" : "UBS Teambuilding event", "events":
+[
+  { "id": 1, "name" : "UBS Teambuilding event", "events":
     [
       { "id": 11, "name": "Felcsut little train", "votes": [ 0, 0, 0 ] },
       { "id": 12, "name": "Lasertag", "votes": [ 0, 6, 0 ] },
@@ -12,6 +13,11 @@ export var EVENTS =
       { "id": 18, "name": "Deathmatch", "votes": [ 0, 6, 2 ] },
       { "id": 19, "name": "Tour in to another dimension", "votes": [ 5, 10, 3 ] },
       { "id": 20, "name": "Visiting Gandalf, and Magneto", "votes": [ 0, 1, 0 ] }
+    ],
+    "voted": [
+        'Marcsi',
+        'Jozsi',
+        'Dragon'
     ]
   },
   { "id": 2, "name" : "DB greenfield", "events":
@@ -19,6 +25,9 @@ export var EVENTS =
         { "id": 11, "name": "stuff", "votes": [ 0, 0, 0 ] },
         { "id": 12, "name": "Beard hunt", "votes": [ 0, 6, 0 ] },
         { "id": 13, "name": "Paintball", "votes": [ 0, 0, 10 ] },
+      ],
+      "voted": [
+          'Filemon'
       ]
     }
   ];

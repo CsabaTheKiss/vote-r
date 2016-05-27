@@ -16,7 +16,7 @@ export class StateService {
     this.userName = userName;
     this.nameSended = true;
     // using the value in the view aswell, that`s why I`m storing it in a var
-    this.userMayVote = this.dataService.getUserVoteStatus( this.userName );
+    // this.userMayVote = this.dataService.getUserVoteStatus( this.userName );
   }
 
   toEndVotingState ( currentVotes : { "name" : string, "vote" : number } [], eventId : number ) {

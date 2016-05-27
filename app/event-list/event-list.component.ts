@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { DataService } from '../shared/data.service';
 import { StateService } from '../shared/state.service';
 import { Router } from '@angular/router-deprecated';
-// import { VoteResultsComponent } from '../vote-results/vote-results.component';
 
 @Component ({
   selector: 'event-list',
@@ -18,14 +17,14 @@ export class EventListComponent {
     private dataService : DataService
   ) {}
 
-  gotoDetail (event : any) {
+  gotoDetail (eventId : number) {
     let userName = this.stateService.userName;
-    let userMayVote = this.dataService.getUserVoteStatus(userName);
+    let userMayVote = this.dataService.getUserVoteStatus(userName, eventId);
     let link : any;
     if ( userMayVote ) {
-      link = ['VotingInterface',  { id: event.id } ];
+      link = ['VotingInterface',  { id: eventId } ];
     } else {
-      link = ['VoteResults',  { id: event.id } ];
+      link = ['VoteResults',  { id: eventId } ];
     }
     this.router.navigate(link);
   }

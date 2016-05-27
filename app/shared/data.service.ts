@@ -47,9 +47,9 @@ export class DataService {
   }
 
   saveVotes(userName : string, votesArr : { "name" : string, "vote" : number }[], eventId: number ) {
-    this.usersWhoVoted.push(userName);
     for ( let i = 0; i < this.eventList.length; ++i ) {
       if ( this.eventList[i].id === eventId ) {
+        this.eventList[i].voted.push(userName);
         // events in votesArr and in the eventList are in the same order, no need to search by name
         for ( let j = 0; j < this.eventList[i].events.length; ++j ) {
           this.eventList[i].events[j].votes.push(votesArr[j].vote);
@@ -60,12 +60,22 @@ export class DataService {
     // NEED TO SAVE TO SERVER HERE - eventList property
   }
 
-  getUserVoteStatus (userName : String) : Boolean {
-    return ( this.usersWhoVoted.indexOf(userName) === -1 );
+  getUserVoteStatus (userName : string, eventId: number) : Boolean {
+    for ( let i = 0; i < this.eventList.length; ++i ) {
+      if ( this.eventList[i].id === eventId ) {
+        return ( this.eventList[i].voted.indexOf(userName) === -1 );
+      }
+    }
+    return null;
   }
 
-  getUsersWhoVoted () : String [] {
-    return this.usersWhoVoted;
+  getUsersWhoVoted (eventId: number) : String [] {
+    for ( let i = 0; i < this.eventList.length; ++i ) {
+      if ( this.eventList[i].id === eventId ) {
+        return ( this.eventList[i].voted);
+      }
+    }
+    return [];
   }
 
   getEventList () {

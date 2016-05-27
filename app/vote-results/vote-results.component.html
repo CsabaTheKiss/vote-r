@@ -1,11 +1,11 @@
 <div id="vr-vote-results">
   <h2>Thanks for voting!</h2>
-  <span>You voted as <span class="user-name">{{ stateService.userName }}</span></span><br>
+  <span>You voted as <span class="user-name">{{ stateService.userName }}</span> on this event.</span><br>
   <div>
     <p>The flollowing users voted so far:</p>
     <p class="user-name">{{userList}}</p>
   </div>
-  <h2>Results so far</h2>
+  <h2>Results so far - {{ eventName }} </h2>
   <ul id="event-list">
     <li *ngFor="let event of endResults; let i = index">
       <span class="event-name">{{ event.name }}</span>
