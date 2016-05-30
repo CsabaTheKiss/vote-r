@@ -1,5 +1,9 @@
 <section>
-  <h2>Select an event to vote</h2>
+  <h2>Select an event to vote on</h2>
+  <div>
+    <p>Logged in as <span class="user-name">{{ stateService.userName }}</span></p>
+    <button (click)="logOut()">Logout</button>
+  </div>
   <p>Avalaible events</p>
   <ul class="event-list">
     <li *ngFor="let event of eventList" (click)="gotoDetail(event.id)">{{ event.name }}</li>

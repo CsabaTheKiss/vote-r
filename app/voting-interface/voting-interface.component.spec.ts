@@ -2,6 +2,7 @@
 import { StateService } from '../shared/state.service';
 import { DataService } from '../shared/data.service';
 import { VotingInterfaceComponent } from './voting-interface.component';
+import { RouteParams, Router, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
 import {
   expect, it, iit, xit,
@@ -10,7 +11,7 @@ import {
   async, inject, injectAsync
 } from '@angular/core/testing';
 
-import { TestComponentBuilder } from '@angular/compiler/testing';
+import { TestComponentBuilder, ComponentFixture } from '@angular/compiler/testing';
 
 import { By }             from '@angular/platform-browser';
 import { provide }        from '@angular/core';
@@ -43,12 +44,20 @@ class MockedDataService {
 ////////  SPECS  /////////////
 
 describe('The voting interface component', () => {
+  var builder : TestComponentBuilder;
 
   beforeEachProviders(() => [
-    StateService,
-    //provide(DataService, { useClass: MockedDataService })
-    DataService
+    // class mocking dosen't work: if no mocking is used, then it works...WTF?!
+    // source used for mocking:
+    // https://docs.google.com/presentation/d/1UkuJgBaOAjDMYiMBLT38LEWMzh6sW_iliTPF1PHnmzY/edit?pref=2&pli=1#slide=id.gbee18c13d_0_266
+    // provide(DataService, { useClass: MockedDataService }),
+    DataService,
+    StateService
   ]);
+
+  beforeEach(inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
+    builder = tcb;
+  }));
 
   let votes : { "name" : string, "vote" : number }[] =
   [
@@ -64,14 +73,9 @@ describe('The voting interface component', () => {
     { "name" : "Visiting Gandalf, and Magneto", "vote" : 5 }
   ];
 
-  it('should render list',
-    injectAsync([TestComponentBuilder], (tcb: TestComponentBuilder) => {
-    return tcb
-          //.overrideProviders(VotingInterfaceComponent, [provide(DataService, {useClass: MockedDataService}), StateService])
-          .createAsync(VotingInterfaceComponent)
-          .then((componentFixture) => {
-      // const element = componentFixture.nativeElement;
-
+  it('should exist', async(() => {
+    builder.createAsync(VotingInterfaceComponent).then((fixture: ComponentFixture<VotingInterfaceComponent>) => {
+      expect(fixture.componentInstance instanceof VotingInterfaceComponent).toBe(true);
     });
   }));
 

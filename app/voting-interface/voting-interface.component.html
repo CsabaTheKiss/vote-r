@@ -2,10 +2,6 @@
 <div id="vr-voting-interface" *ngIf="eventList">
   <h2>Voting for: {{ eventList.name }}</h2>
   <span>You may vote as: <span class="user-name">{{ stateService.userName }}</span></span><br>
-  <div>
-    <p>The flollowing users voted so far:</p>
-    <p class="user-name">{{ userList }}</p>
-  </div>
   <form [ngFormModel]="votingForm" (ngSubmit)="sendVotes()" novalidate>
   <div>Votes given:
     <input id="sumOfVotes" type="text" [(ngModel)]="sumOfVotes" ngControl="sumOfVotesControl" readonly>

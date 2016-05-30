@@ -21,8 +21,8 @@ class sumOfVotesValidator {
 
 export class VotingInterfaceComponent implements OnInit{
 
-  private userList : string = this.dataService.getUsersWhoVoted(+this.routeParams.get('id')).join(', ');
-  // private eventList = this.dataService.getEventList();
+  // private userList : string = this.dataService.getUsersWhoVoted(+this.routeParams.get('id')).join(', ');
+  //private eventList = this.dataService.getEventList();
   private eventList :  { "id": number, "name" : string, "events":
         { "id": number, "name": string, "votes": number [] } [] };
   private currentVotes : { "name" : string, "vote" : number } [];

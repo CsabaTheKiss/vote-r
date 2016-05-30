@@ -28,4 +28,10 @@ export class EventListComponent {
     }
     this.router.navigate(link);
   }
+
+  logOut() {
+    this.stateService.logOut().then((data) => {
+      if ( data ) {console.log("Successfully logged out", data); };
+    });
+  }
 }
