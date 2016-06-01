@@ -3,14 +3,6 @@ import { FORM_DIRECTIVES, FormBuilder, Control, ControlGroup, Validators } from 
 import { DataService } from '../shared/data.service';
 import { StateService } from '../shared/state.service';
 import { Router } from '@angular/router-deprecated';
-/*
-
-Form:
-- event name
-- option name, add button
-- save button
-- the added options are listed in a list below
-*/
 
 class minEventOptionValidator {
   static getCountVal(control: Control) {
@@ -51,7 +43,7 @@ export class CreateEventComponent implements OnInit{
     this.minEventOptionsValidator = new Control('', minEventOptionValidator.getCountVal);
 
     this.newEventForm = builder.group({
-      eventOptionName: this.eventOptionNameValidator,
+      // eventOptionName: this.eventOptionNameValidator,
       eventName: this.eventNameValidator,
       eventOptionCounter: this.minEventOptionsValidator
     })
@@ -72,7 +64,6 @@ export class CreateEventComponent implements OnInit{
     let votes : number[] = [];
     let newEventOption = { "id": this.currEventOptionId, "name": this.eventOptionName, "votes": votes };
     this.newEvent.events.push(newEventOption);
-    console.log(this.newEvent)
     ++this.currEventOptionId;
     ++this.eventOptionCounter;
 
