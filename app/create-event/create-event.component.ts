@@ -38,12 +38,10 @@ export class CreateEventComponent implements OnInit{
     private dataService: DataService,
     private router: Router
   ) {
-    this.eventOptionNameValidator = new Control('', Validators.required);
     this.eventNameValidator = new Control('', Validators.required);
     this.minEventOptionsValidator = new Control('', minEventOptionValidator.getCountVal);
 
     this.newEventForm = builder.group({
-      // eventOptionName: this.eventOptionNameValidator,
       eventName: this.eventNameValidator,
       eventOptionCounter: this.minEventOptionsValidator
     })

@@ -1,6 +1,6 @@
 <section id="create-event">
   <form [ngFormModel]="newEventForm" (ngSubmit)="saveNewEvent()">
-    <h2>Create event</h2>
+    <h2>Create an event</h2>
     <label for="eventName">Event name: </label>
     <br><input id="eventName" type="text"
       [(ngModel)]="eventName"
@@ -24,10 +24,12 @@
       ngControl="eventOptionCounter"
       [hidden]="true"
       readonly>
-    <ul>
+    <ul class="event-option-list">
       <li *ngFor="let event of newEvent.events; let i = index">
-        {{event.name}}
-        <span (click)="deleteEventOption(i)">[X]</span>
+        <span class="item-name">{{event.name}}</span>
+        <span class="remove-item-wrapper" (click)="deleteEventOption(i)">
+          <i class="del-icon">[X]</i>
+        </span>
       </li>
     </ul>
     <button (click)="goBack($event)">Back</button>

@@ -1,0 +1,38 @@
+#create-event .event-option-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#create-event .event-option-list li {
+  height: 2em;
+  max-width: 300px;
+  padding: 0 10px;
+  position: relative;
+}
+
+#create-event .event-option-list li:nth-child(odd) {
+  background: #d2d2d2;
+}
+
+#create-event .event-option-list .item-name, #create-event .event-option-list .del-icon {
+  display: inline-block;
+  position: relative;
+  font-style: normal;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#create-event .event-option-list .remove-item-wrapper {
+  background: #888;
+  color: #fff;
+  position: absolute;
+  right: 0;
+  height: 2em;
+  width: 2em;
+  text-align: center;
+}
+
+#create-event .event-option-list .remove-item-wrapper:hover {
+  background: #9d7374;
+  cursor: pointer;
+}
