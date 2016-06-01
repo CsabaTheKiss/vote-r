@@ -1,0 +1,37 @@
+<section id="create-event">
+  <form [ngFormModel]="newEventForm" (ngSubmit)="saveNewEvent()">
+    <h2>Create event</h2>
+    <label for="eventName">Event name: </label>
+    <br><input id="eventName" type="text"
+      [(ngModel)]="eventName"
+      ngControl="eventName"
+    >
+    <br><label for="optionName">Event option name: </label>
+    <br><input id="optionName" type="text"
+      [(ngModel)]="eventOptionName"
+      ngControl="eventOptionName"
+    >
+    <button (click)="addEventOption()" [disabled]="!newEventForm.controls.eventOptionName.valid">Add</button>
+    <br>
+
+    <p>
+      Event options added so far:
+      <span class="error-msg" [ngClass]="{ 'hidden': newEventForm.controls.eventOptionCounter.valid }">
+        You need to add atleast {{ minNumOfEventOptions - eventOptionCounter }} event options!
+      </span>
+    </p>
+    <input type="text"
+      [(ngModel)]="eventOptionCounter"
+      ngControl="eventOptionCounter"
+      [ngClass]="{ 'hidden': true }"
+      readonly>
+    <ul>
+      <li *ngFor="let event of newEvent.events; let i = index">
+        {{event.name}}
+        <span (click)="deleteEventOption(i)">[X]</span>
+      </li>
+    </ul>
+    <button (click)="goBack($event)">Back</button>
+    <input class="button" type="submit" value="save" [disabled]="!newEventForm.valid">
+  </form>
+</section>

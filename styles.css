@@ -11,8 +11,8 @@ h2, h3 {
   font-weight: lighter;
 }
 body {
-  margin: 2em;
-  background: #c3c3c3;
+  margin: 0;
+  background: #fff;
 }
 input[type=text] {
   border: 1px solid #cecece;
@@ -80,12 +80,8 @@ nav a.router-link-active {
 
 /* main content area */
 .vr-content {
-  box-shadow: 0 0 10px rgba(0, 0, 0, .5);
-  background: #fff;
   margin: 0 auto;
-  max-width: 800px;
   min-height: 500px;
-  padding: 20px;
 }
 
 .user-name {
@@ -106,6 +102,10 @@ input[type=text].ng-invalid {
 
 .error-msg {
   color: #a94442;
+}
+
+.hidden {
+  display: none;
 }
 
 /* everywhere else */

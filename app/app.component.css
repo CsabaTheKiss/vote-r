@@ -1,1 +1,16 @@
+header {
+  height: 200px;
+  background: #888;
+}
 
+header h1 {
+  color: #fff;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+main {
+  margin: 0 auto;
+  max-width: 800px;
+}

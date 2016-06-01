@@ -5,6 +5,7 @@ import  { InputFormComponent } from './input-form/input-form.component';
 import { VotingInterfaceComponent } from './voting-interface/voting-interface.component';
 import { EventListComponent } from './event-list/event-list.component';
 import { VoteResultsComponent } from './vote-results/vote-results.component';
+import { CreateEventComponent } from './create-event/create-event.component';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
 @Component({
@@ -36,6 +37,11 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/route
     name: 'EventList',
     component: EventListComponent,
     useAsDefault: true
+  },
+  {
+    path: '/createevent',
+    name: 'CreateEvent',
+    component: CreateEventComponent
   }
 ])
 

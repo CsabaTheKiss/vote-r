@@ -9,6 +9,7 @@ export class DataService {
   private eventAvgEventList : { "name" : string, "voteAvg" : number } [] = [];
   private blankVoteList : any [] = [];
   private maxVoteVal = 10; // set the max possbile vote points here
+  private lastEventId : number;
 
   constructor () {
     // NEED TO GET eventList FROM SERVER HERE
@@ -17,7 +18,23 @@ export class DataService {
     /*this.eventList.forEach( (elem, ind) => {
       this.blankVoteList.push( { "name" : elem.name, "vote" : 0 } );
     });*/
+
+    this.lastEventId = EVENTS[EVENTS.length-1].id;
   };
+
+  saveNewEvent(ev : any) {
+    return new Promise(resolve => {
+      setTimeout( ( ) => {
+        this.eventList.push(ev);
+        resolve(true);
+      }, 1000)
+    });
+  }
+
+  getNextEventId() {
+    ++this.lastEventId;
+    return this.lastEventId;
+  }
 
   getEvent(id : number) {
     return Promise.resolve(EVENTS).then(

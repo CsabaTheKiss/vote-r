@@ -34,4 +34,8 @@ export class EventListComponent {
       if ( data ) {console.log("Successfully logged out", data); };
     });
   }
+
+  navToCreateEvent() {
+    this.router.navigate(['CreateEvent']);
+  }
 }

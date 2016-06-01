@@ -1,5 +1,6 @@
 #vr-vote-results #event-list {
   list-style-type: none;
+  padding-left: 0;
 }
 
 #vr-vote-results #event-list .event-name {

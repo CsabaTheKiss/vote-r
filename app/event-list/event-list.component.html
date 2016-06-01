@@ -1,7 +1,8 @@
-<section>
+<section id="event-list-component">
   <h2>Select an event to vote on</h2>
   <div>
     <p>Logged in as <span class="user-name">{{ stateService.userName }}</span></p>
+    <button (click)="navToCreateEvent()">Create event</button>
     <button (click)="logOut()">Logout</button>
   </div>
   <p>Avalaible events</p>
