@@ -1,5 +1,9 @@
-<header><h1>Vote-R <i class="fa fa-bar-chart" aria-hidden="true"></i></h1></header>
+<header>
+  <h1>Vote-R <i class="fa fa-tasks" aria-hidden="true"></i></h1>
+  <vr-navigation *ngIf="stateService.nameSended"></vr-navigation>
+</header>
 <!-- div id="loading-screen"><span>Loading...</span></div -->
+
 <section id="main-wrapper">
   <main>
     <input-form *ngIf="!stateService.nameSended">Import form should be here...</input-form>

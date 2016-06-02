@@ -1,0 +1,22 @@
+<nav>
+  <ul>
+    <li>
+      <button id="login-info" disabled>
+        Logged in as <i class="fa fa-key" aria-hidden="true"></i>
+        <span class="user-name">{{ stateService.userName }}</span>
+      </button>
+    </li>
+    <li>
+      <button (click)="navToCreateEvent()">
+        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        Create event
+      </button>
+    </li>
+    <li>
+      <button (click)="logOut()">
+        <i class="fa fa-power-off" aria-hidden="true"></i>
+        Logout
+      </button>
+    </li>
+  </ul>
+</nav>

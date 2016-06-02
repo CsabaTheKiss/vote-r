@@ -1,0 +1,23 @@
+nav {
+  color: #fff;
+}
+button:focus {outline:0;}
+nav ul {
+  padding-left: 0;
+}
+nav ul li {
+  display: inline-block;
+}
+nav #login-info {
+  background: #fff;
+  color: #888;
+}
+nav button {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+nav button:hover {
+  color: #888;
+  background: #fff;
+}

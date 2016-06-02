@@ -6,6 +6,7 @@ import { VotingInterfaceComponent } from './voting-interface/voting-interface.co
 import { EventListComponent } from './event-list/event-list.component';
 import { VoteResultsComponent } from './vote-results/vote-results.component';
 import { CreateEventComponent } from './create-event/create-event.component';
+import { NavigationComponent } from './navigation/navigation.component';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
 @Component({
@@ -17,6 +18,7 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/route
       VotingInterfaceComponent,
       VoteResultsComponent,
       EventListComponent,
+      NavigationComponent,
       ROUTER_DIRECTIVES
     ]
 })

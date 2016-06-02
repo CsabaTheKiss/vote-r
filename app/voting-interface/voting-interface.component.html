@@ -1,7 +1,7 @@
 <!-- div id="vr-voting-interface" *ngIf="eventList && stateService.nameSended && stateService.userMayVote && !stateService.voteEnded" -->
 <div id="vr-voting-interface" *ngIf="eventList">
+  <span class="icon-title icon-xlarge"><i class="fa fa-pencil-square" aria-hidden="true"></i></span>
   <h2>Voting on: {{ eventList.name }}</h2>
-  <span>You may vote as: <span class="user-name">{{ stateService.userName }}</span></span><br>
   <form [ngFormModel]="votingForm" (ngSubmit)="sendVotes()" novalidate>
   <div>Votes given:
     <input id="sumOfVotes" type="text" [(ngModel)]="sumOfVotes" ngControl="sumOfVotesControl" readonly required>

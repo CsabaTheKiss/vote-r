@@ -1,4 +1,5 @@
 <section id="create-event">
+  <span class="icon-title icon-xlarge"><i class="fa fa-cogs" aria-hidden="true"></i></span>
   <form [ngFormModel]="newEventForm" (ngSubmit)="saveNewEvent()" novalidate>
     <h2>Create an event</h2>
     <label for="eventName">Event name: </label>
@@ -29,7 +30,7 @@
       <li *ngFor="let event of newEvent.events; let i = index">
         <span class="item-name">{{event.name}}</span>
         <span class="remove-item-wrapper" (click)="deleteEventOption(i)">
-          <i class="del-icon">[X]</i>
+          <i class="fa fa-times del-icon" aria-hidden="true"></i>
         </span>
       </li>
     </ul>

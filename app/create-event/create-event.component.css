@@ -23,8 +23,7 @@
 }
 
 #create-event .event-option-list .remove-item-wrapper {
-  background: #888;
-  color: #fff;
+  color: #888;
   position: absolute;
   right: 0;
   height: 2em;
@@ -34,5 +33,6 @@
 
 #create-event .event-option-list .remove-item-wrapper:hover {
   background: #9d7374;
+  color: #fff;
   cursor: pointer;
 }
