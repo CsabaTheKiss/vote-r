@@ -1,3 +1,16 @@
+#vr-input-form-component {
+  text-align: center;
+}
+
 #vr-input-form-component .input-fields {
   margin-bottom: 15px;
+}
+
+#vr-input-form-component .icon-title {
+  margin-top: 6%;
+}
+
+#vr-input-form-component h2 {
+  text-align: center;
+  margin-top: .2em;
 }

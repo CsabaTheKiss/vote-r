@@ -1,13 +1,15 @@
 <div id="vr-input-form-component">
-  <h2>Welcome <i class="fa fa-home" aria-hidden="true"></i></h2>
+  <span class="icon-title icon-xlarge"><i class="fa fa-home" aria-hidden="true"></i></span>
+  <h2>Welcome</h2>
   <p>Please enter your name to proceed</p>
   <form (ngSubmit)="sendName()" #nameForm="ngForm" novalidate>
     <section class="input-fields">
       <input type="text" placeholder="Add your name here" required
              [(ngModel)]="userName"
              ngControl="userName">
-      <span>The name you entered is: <span class="user-name">{{userName}}</span></span>
+      <p>The name you entered is:</p>
+      <span class="user-name"> {{userName}}</span>
     </section>
-    <button type="submit" [disabled]="!nameForm.form.valid">Send</button>
+    <input type="submit" class="button" [disabled]="!nameForm.form.valid" value="Send">
   </form>
 </div>

@@ -5,6 +5,9 @@ h1 {
   font-size: 250%;
   text-align: center;
 }
+h2 {
+  text-align: center;
+}
 h2, h3 {
   color: #444;
   font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
@@ -21,7 +24,7 @@ input[type=text] {
   line-height: 2.5em;
   padding: 8px;
 }
-body, input[type=text], button {
+body, input[type=text], input[type=submit], button {
   color: #888;
   font-family: 'Open Sans', Cambria, Georgia;
 }
@@ -106,6 +109,41 @@ input[type=text].ng-invalid {
 
 .hidden {
   display: none;
+}
+
+/* icofont styles */
+
+.icon-title {
+  display: block;
+  text-align: center;
+}
+
+.icon-tiny {
+  font-size: .3em;
+}
+
+.icon-xsmall {
+  font-size: .5em;
+}
+
+.icon-small {
+  font-size: .75em;
+}
+
+.icon-normal {
+  font-size: 1em;
+}
+
+.icon-medium {
+  font-size: 2.25em;
+}
+
+.icon-large {
+  font-size: 3.25em;
+}
+
+.icon-xlarge {
+  font-size: 4.25em;
 }
 
 /* everywhere else */
