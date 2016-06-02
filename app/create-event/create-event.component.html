@@ -1,16 +1,17 @@
 <section id="create-event">
-  <form [ngFormModel]="newEventForm" (ngSubmit)="saveNewEvent()">
+  <form [ngFormModel]="newEventForm" (ngSubmit)="saveNewEvent()" novalidate>
     <h2>Create an event</h2>
     <label for="eventName">Event name: </label>
     <br><input id="eventName" type="text"
       [(ngModel)]="eventName"
       ngControl="eventName"
+      required
     >
     <br><label for="optionName">Event option name: </label>
     <br><input id="optionName" type="text"
       [(ngModel)]="eventOptionName"
     >
-    <button (click)="addEventOption()" [disabled]="!eventOptionName">Add</button>
+    <button (click)="addEventOption($event)" [disabled]="!eventOptionName">Add</button>
     <br>
 
     <p>

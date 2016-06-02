@@ -12,7 +12,7 @@ h2, h3 {
 }
 body {
   margin: 0;
-  background: #fff;
+  background: #eee;
 }
 input[type=text] {
   border: 1px solid #cecece;
@@ -36,7 +36,7 @@ button, .button {
   letter-spacing: 1.5;
   padding: 5px 10px;
   text-transform: uppercase;
-  border-radius: 4px;
+  /* border-radius: 4px; */
   cursor: pointer;
   cursor: hand;
 }
@@ -88,7 +88,7 @@ nav a.router-link-active {
   font-style: italic;
 }
 
-input[type=text].ng-valid {
+input[type=text][required].ng-valid {
   border: 1px solid #cecece;
   border-left: 5px solid #42A948; /* green */
   padding-left: 3px;

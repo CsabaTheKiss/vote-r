@@ -55,10 +55,10 @@ export class CreateEventComponent implements OnInit{
     this.eventOptionCounter = 0;
   }
 
-  addEventOption() {
+  addEventOption(event: any) {
     // the type of an event in the events array:
     // { "id": number, "name": string, "votes": number [] }
-
+    event.preventDefault();
     let votes : number[] = [];
     let newEventOption = { "id": this.currEventOptionId, "name": this.eventOptionName, "votes": votes };
     this.newEvent.events.push(newEventOption);

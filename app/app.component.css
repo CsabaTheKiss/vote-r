@@ -11,6 +11,41 @@ header h1 {
 }
 
 main {
-  margin: 0 auto;
+  background: #fff;
+  border: 1px solid #ccc;
+  margin: 30px auto 0 auto;
   max-width: 800px;
+  min-height: 400px;
+  padding: 30px;
+  /* becouse of sticky footer */
+  position: relative;
+  top: 200px;
+}
+
+#main-wrapper {
+    min-height: 100%;
+    /* equal to footer height */
+    margin-bottom: -100px;
+    margin-top: -200px;
+}
+
+#main-wrapper:after {
+  content: "";
+  display: block;
+  height: 100px;
+}
+
+footer {
+  background: #464547;
+  position: relative;
+  font-size: .75em;
+  height: 100px;
+}
+
+footer .about {
+  display: block;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
